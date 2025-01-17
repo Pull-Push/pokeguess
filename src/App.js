@@ -1,5 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
+import gameStart from './components/gameSetup';
+
+const game = await gameStart();
+console.log('game', game)
+
 
 function App() {
   return (
