@@ -3,7 +3,10 @@ import React from 'react'
 const getPokemon = async () => {
     try {
         const rando = Math.floor(Math.random() * 151) + 1;
+        console.log(`the number is ${rando}`)
         const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${rando}`);
+        // const response = await fetch(`https://pokeapi.co/api/v2/pokemon/32`); - Nidoran M
+
         if (response.ok) {
             return await response.json(); // Return the Pokémon data
         } else {

@@ -1,9 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
-import gameStart from './components/gameSetup';
+import pokeSanitize from './components/gameSanitize';
+import setUpFunction from './components/gameSetup';
 
-const game = await gameStart();
+
+const game = await pokeSanitize();
 console.log('game', game)
+
+const appSetup = setUpFunction(); 
 
 
 function App() {
@@ -20,20 +24,6 @@ function App() {
           <li>Type 2: {game.types[1].type.name}</li>
         </ul>
       </div>
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
     </div>
   );
 }
