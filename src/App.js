@@ -9,7 +9,18 @@ console.log('game', game)
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      <div>
+        <h1>{game.name}</h1>
+        <p>ID: {game.id}</p>
+        <p>Height: {game.height}m</p>
+        <p>Weight: {game.weight}kg</p>
+        <img src={game.sprite}></img>
+        <ul>
+          <li>Type 1: {game.types[0].type.name}</li>
+          <li>Type 2: {game.types[1].type.name}</li>
+        </ul>
+      </div>
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -22,7 +33,7 @@ function App() {
         >
           Learn React
         </a>
-      </header>
+      </header> */}
     </div>
   );
 }

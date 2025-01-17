@@ -16,19 +16,27 @@ function gameStart() {
         savedPokemon = pokemon;
         // console.log('Saved Pokémon:', savedPokemon);
         pokeObject.id = pokemon.id;
-        pokeObject.name = pokemon.name;
-        pokeObject.height = pokemon.height;
-        pokeObject.weight = pokemon.weight;
+        pokeObject.name = pokemon.name.toUpperCase();
+        pokeObject.height = pokemon.height / 10;
+        pokeObject.weight = pokemon.weight / 10 ;
         pokeObject.sprite = pokemon.sprites.front_default;
         pokeObject.types = pokemon.types;
 
-        //fix only one type error
+
+
+        //fix only one type error and sanitize
         if(!pokeObject.types[1]){
             let second = {
                 'slot': 2,
-                'type':'None'
+                'type':{
+                    'name':'NONE'
+                }
             }
+            pokeObject.types[0].type.name = pokeObject.types[0].type.name.toUpperCase();
             pokeObject.types.push(second)
+        }else{
+            pokeObject.types[0].type.name = pokeObject.types[0].type.name.toUpperCase();
+            pokeObject.types[1].type.name = pokeObject.types[1].type.name.toUpperCase();
         }
 
         // console.log('Accessing savedPokemonObject later:', pokeObject);
